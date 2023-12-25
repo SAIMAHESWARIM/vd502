@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+        body{
+            background-color:rgb(201, 176, 160);
+        }
+        h1{
+             text-align :center;
+        }
+       p{
+        font-size:25px;
+        text-align:center;                                                                                                                                                     
+       }
+       hr{
+         padding:0px;
+       }
+      .container{
+         position: absolute;
+        background-color:cyan;
+         width:100%;
+         height:1000px;
+         float:center;
+    
+      }
+      #a{
+        padding:20px;
+        font-size:20px;
+      }
+      /* table{
+        margin: -100px;
+        margin-left: 50px;
+      } */
+      #name,#email,#password,#dob,#cpwd{
+         opacity:3px;
+         border:none;
+         background-color:white;
+         width:500px;
+         padding:10px;
+         border-color: blanchedalmond;
+         font-size:20px;
+         display:inline-block;
+      }  
+    #Check{
+         font-size:25px;
+    } 
+    #Submit{
+        background-color: green;
+        font-size:20px; 
+
+    }    
+    #account{
+         text-align:center;
+         background-color:burlywood;
+         height:50px;
+         padding-top:10px;
+         width:690px;
+    }
+    .output{
+       background-color: whitesmoke;
+       display:block;
+       width:80%;
+       height:200px;
+    }
+   #table{
+    width:950px;
+    height:100px;
+    margin-bottom:200px;
+   }
+    
+ h2{
+  font-size:20px;
+  padding:20px;
+ }
+ .accept{
+  font-size:25px;
+ }
+
+</style>
+    </head>
+    <body>
+      <div>
+        <center>
+          
+            <h1>REGISTRATION FORM</h1>
+            <p><b>Create an Account</b></p>
+            <hr><hr>
+            <div class="container">
+            <form >
+            <div>
+            <table style="border-collapse: collapse;border: transparent;margin-top: -100px;" >
+            </div>
+              <div>
+            <tr>
+            <td><label for="text" id="a"><b>User Name</b></label></td>
+            <td><input type="name" placeholder="Enter Name" id="name" required ></td><br><br>
+            </tr>
+            </div>
+            <div>
+            <tr>
+            <td><label for="text" id="a"><b>Email Address</b></label></td>
+            <td><input type="email" placeholder="Enter your Email" id="email" required ></td><br><br>
+            </tr>
+            </div>
+            <div>
+            <tr>
+            <td><label for="text" cellspacing="3"  cellpadding="2" id ="a"><b>Password</b></label></td>
+            <td><input type="password" placeholder="Enter your Password" id ="password" required ></td><br><br>
+            </tr>
+          </div>
+          <div>
+            <tr>
+              <td><label for="text" id ="a" required><b>Confirm Password</b></label></td>
+              <td><input type="password" placeholder="Enter your password" id="cpwd" required ></td>
+            </tr>
+            </div>
+            <div>
+            <tr>
+            <td><label for="text" id="a" required><b>Date of Birth</b></label></td>
+            <td><input type="Date" id="dob"  min="1980-04-30" max="2005-04-30"  required ></td><br><br>
+            </tr>
+            </div>
+            </table><br><br>
+            <div class="accept">
+            <input type="checkbox" required id="Check"><b>Accept terms&Conditions</b><br><br>
+            </div>
+            <div>
+              <button onclick="output()"  id="Submit">Submit</button>
+            </div>
+            <div>
+            <p id="account">Already have an account?<a href="#">Sign in</a>.</p>
+            </div>
+            <div class="output">
+              <center>
+                  <h2>Entries</h2>
+              </center>
+              <table width="100%" border="2" id="table">
+                <tr>
+                <th><b>Name</b></th>
+                <th><b>Email</b></th>
+                <th><b>password</b></th>
+                <th><b>Confirm password</b></th>
+                <th><b>Dob</b></th>
+                <th><b>Accepted terms?</b></th>
+                </tr>
+              </table><br><br>
+              </div>
+              </form> 
+      </div>
+    </center>
+  </div>
+  <script type="text/javascript">
+            
+    document.getElementById("Check").onclick=function()
+    {
+        
+        document.getElementById("Submit").onclick=function()
+        {
+        
+            if(document.getElementById("Check").value=="on"){
+                document.getElementById("table").style.display="block";
+                var table = document.getElementById("table");
+                var row = table.insertRow(-1);
+                var NAME = row.insertCell(0);
+                var EMAIL = row.insertCell(1);
+                var PASSWORD = row.insertCell(2);
+                var CPWD = row.insertCell(3);
+                var DOB = row.insertCell(4);
+                var CHECK = row.insertCell(5);
+                NAME.innerHTML = document.getElementById("name").value;
+                EMAIL.innerHTML = document.getElementById("email").value;
+                PASSWORD.innerHTML = document.getElementById("password").value;
+                CPWD.innerHTML = document.getElementById("cpwd").value;
+                DOB.innerHTML = document.getElementById("dob").value;
+                CHECK.innerHTML = "true";
+                console.log(CHECK.Checked);
+                return false;
+            }
+        }
+        
+    }
+      </script>
+    </body>
+</html>
